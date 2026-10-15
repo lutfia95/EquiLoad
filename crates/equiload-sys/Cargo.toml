@@ -1,0 +1,18 @@
+[package]
+name = "equiload-sys"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description.workspace = true
+repository.workspace = true
+homepage.workspace = true
+publish = false
+links = "equiload_ffi"
+build = "build.rs"
+
+[features]
+default = []
+hdf5 = []
+
+[build-dependencies]
+cmake = "0.1"

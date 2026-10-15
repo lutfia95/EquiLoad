@@ -1,0 +1,35 @@
+[build-system]
+requires = ["maturin>=1.5,<2", "torch>=2.6,<2.15"]
+build-backend = "maturin"
+
+[project]
+name = "equiload"
+dynamic = ["version"]
+description = "Native HDF5 graph loader for Equitrain and PyTorch Geometric"
+requires-python = ">=3.9"
+license = { file = "LICENSE" }
+readme = "README.md"
+dependencies = [
+    "numpy>=1.21",
+    "torch>=2.6,<2.15",
+    "torch-geometric>=2.5",
+]
+keywords = ["equitrain", "hdf5", "pytorch-geometric", "data-loader"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Rust",
+]
+
+[project.urls]
+Repository = "https://github.com/lutfia95/RTorch"
+
+[tool.maturin]
+manifest-path = "crates/equiload-python/Cargo.toml"
+module-name = "equiload"
+# The extension links to PyTorch's C++ libraries. A source build is therefore
+# made in the target environment and is the supported distribution mechanism.
+compatibility = "linux"
+auditwheel = "skip"
